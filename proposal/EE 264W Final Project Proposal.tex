@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+
+\title{EE 264W Final Project Proposal}
+\author{Parthiv Krishna, Winter 2021}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The purpose of the proposed final project is to design, implement, and test an embedded, real-time digital audio effects processor, in the form of a guitar pedal. Guitar pedals are often implemented with analog circuitry; however, this makes them difficult to reconfigure outside of a few knobs specific to the type of pedal. Due to the limited nature of analog audio pedals, many experienced guitar players own dozens of pedals, which can be quite cost-prohibitive. This project will aim to replicate the functionality of several analog pedals with a reconfigurable and low-cost digital guitar pedal.
+
+\section{Functional Overview}
+
+The proposed system will be a self-contained unit that takes in audio signals from an audio jack, performs time-domain and frequency-domain processing with the {\color{blue}\href{https://www.pjrc.com/store/teensy35.html}{Teensy 3.5}} microcontroller board. This board was chosen for several reasons, including it being already owned, programmable using C++, and supporting an {\color{blue}\href{https://www.pjrc.com/store/teensy3_audio.html}{Audio Board}} which includes a 16-bit, 44.1kHz ADC and DAC. On top of this, the CPU has some DSP instructions which enable the acceleration of common operations like FFT and filtering. These would be used to make the code run in real-time. Proposed effects include, but are not limited to Distortion, Convolutional Reverb, Delay, and Equalization. To enable real-time processing, the audio will be processed on a block-by-block basis; as a result, effects will need to be carefully implemented to work in this environment. 
+\\ \newline
+On top of the effects, a Karaoke feature with audio saved on an SD card will be implemented to help the pedal user learn new songs. This feature may involve the use of the same concepts from the first several labs, including resampling, block-based processing, and the jitter algorithm. 
+
+
+\section{Timeline}
+\begin{itemize}
+    \item \textbf{February 11 - 17}: Setup code repository and hardware, play simple audio files and verify audio input/processing/output pipeline.
+    \item \textbf{February 18 - 24}: Re-implement rate-converting Karaoke machine on the hardware, implement Distortion effect.
+    \item \textbf{February 25 - March 3}: Implement Convolutional Reverb, Delay, and Equalization effects, lab report draft.
+    \item \textbf{March 4 - 10}: Finalize code, lab report revisions.
+    
+\end{itemize}
+
+\section{Potential Future Work}
+
+Potential future work would involve implementing more effects, creating an intuitive user interface (perhaps including a screen), and creating a more robust physical enclosure such that the system could actually be used as a guitar pedal. A stretch goal is pitch shifting via the Phase Vocoder algorithm, but this may prove difficult given the constrained RAM/compute environment of the Teensy 3.5 board (256K RAM, 120 MHz ARM Cortex-M4 CPU).
+
+\end{document}
