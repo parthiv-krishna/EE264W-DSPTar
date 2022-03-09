@@ -12,16 +12,9 @@
 #include <SD.h>
 #include <SerialFlash.h>
 
+#include "dsptar_config.h"
 #include "distortion.h"
 #include "distortion_array.h"
-
-#define VOLUME_ADC_PIN A1
-#define INPUT_GAIN_ADC_PIN A3
-// 10 bit ADC on volume knob
-#define ADC_BITS 10
-#define ADC_MAX ((1 << ADC_BITS) - 1)
-#define MIN_GAIN 50.0
-#define MAX_GAIN 500.0
 
 // audio shield input
 AudioInputI2S in;
@@ -53,11 +46,15 @@ void setup() {
 }
 
 void loop() {
-    // float so we can get a float when dividing
-    float volPot = analogRead(VOLUME_ADC_PIN);
-    audioShield.volume(volPot/ADC_MAX);
-    
-    float gainPot = analogRead(INPUT_GAIN_ADC_PIN);
-    float gain = MIN_GAIN + gainPot * (MAX_GAIN - MIN_GAIN) / ADC_MAX;
+
+    // update preamp gain
+    float gainPot = analogRead(PREAMP_GAIN_ADC_PIN);
+    // linear interpolation
+    float gain = PREAMP_MIN_GAIN + gainPot * (PREAMP_MAX_GAIN - PREAMP_MIN_GAIN) / (float) ADC_MAX;
     inputAmp.gain(gain);
+
+    // update output volume
+    float volPot = analogRead(VOLUME_ADC_PIN);
+    audioShield.volume((volPot * VOLUME_GAIN)/ADC_MAX);
+
 }
