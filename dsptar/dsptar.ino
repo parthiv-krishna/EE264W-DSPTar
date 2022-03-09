@@ -16,12 +16,14 @@
 #include "preamp.h"
 #include "distortion.h"
 #include "distortion_array.h"
+#include "noisegate.h"
 
 // audio shield input
 AudioInputI2S in;
 
 Preamp preamp;
 Distortion dist;
+NoiseGate gate;
 
 // headphone/line out on audio shield 
 AudioOutputI2S out;
@@ -29,8 +31,9 @@ AudioOutputI2S out;
 // connect in to both ears (wired on right channel = 1)
 AudioConnection inToAmp(in, 1, preamp, 0);
 AudioConnection ampToDist(preamp, 0, dist, 0);
-AudioConnection distToRight(dist, 0, out, 1);
-AudioConnection distToLeft(dist, 0, out, 0);
+AudioConnection distToGate(dist, 0, gate, 0);
+AudioConnection gateToRight(gate, 0, out, 1);
+AudioConnection gateToLeft(gate, 0, out, 0);
 
 // audio shield control
 AudioControlSGTL5000 audioShield;
@@ -42,6 +45,7 @@ void setup() {
     audioShield.enable();
     audioShield.inputSelect(AUDIO_INPUT_LINEIN); // line in input
     dist.setup(DISTORTION_ARR, DISTORTION_ARR_LEN);
+    gate.setThresh(NOISE_GATE_THRESH);
     Serial.println("setup complete");
 }
 

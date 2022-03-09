@@ -10,6 +10,9 @@
 #define PREAMP_MIN_GAIN 50      // minimum gain value
 #define PREAMP_MAX_GAIN 500     // maximum gain value
 
+// Output noise gate control
+#define NOISE_GATE_THRESH 8192  // minimum sample absolute value to be sent to output
+
 // Output volume control
 #define VOLUME_ADC_PIN A1       // analog input pin for volume control
 #define VOLUME_GAIN 1           // constant scale factor to apply to volume
