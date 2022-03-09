@@ -56,14 +56,18 @@ void Distortion::update(void) {
     }
 
     
-    for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) {
+    for (int16_t i = 0; i < AUDIO_BLOCK_SAMPLES; i++) {
         // data ranges from -32768 to 32767. convert to 0 to 65535
-        uint16_t x = block->data[i] + 32768;
+        uint16_t x = block->data[i] - INT16_MIN; // aka + 32768
         // linear interpolation
         uint16_t arr_idx = x >> _bitShift; // find associated index in distortion array
-        uint16_t y_lower = _distortionArr[arr_idx]; 
-        uint16_t y_upper = _distortionArr[arr_idx + 1];
-        block->data[i] = y_lower + ((y_upper - y_lower) * (x - (arr_idx << _bitShift)) >> _bitShift);
+        int16_t y_lower = _distortionArr[arr_idx]; 
+        int16_t y_upper = _distortionArr[arr_idx + 1];
+        // need 32 bits to store result of 16 bit multiplication
+        int32_t raw = y_lower + ((y_upper - y_lower) * (x - (arr_idx << _bitShift)) >> _bitShift);
+
+        // clip at int16 min/max
+        block->data[i] = (int16_t) constrain(raw, INT16_MIN, INT16_MAX);
     }
 
     transmit(block);
