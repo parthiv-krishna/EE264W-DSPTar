@@ -36,7 +36,7 @@ public:
     bool setup(int16_t *distortionArr, int length);
 
     /**
-     * @brief Transmits an output block given its current 
+     * @brief Transmits an output block after applying distortion 
      * 
      */
     virtual void update(void);

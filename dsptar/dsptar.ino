@@ -13,22 +13,22 @@
 #include <SerialFlash.h>
 
 #include "dsptar_config.h"
+#include "preamp.h"
 #include "distortion.h"
 #include "distortion_array.h"
 
 // audio shield input
 AudioInputI2S in;
 
-AudioAmplifier inputAmp;
-
+Preamp preamp;
 Distortion dist;
 
 // headphone/line out on audio shield 
 AudioOutputI2S out;
 
 // connect in to both ears (wired on right channel = 1)
-AudioConnection inToAmp(in, 1, inputAmp, 0);
-AudioConnection ampToDist(inputAmp, 0, dist, 0);
+AudioConnection inToAmp(in, 1, preamp, 0);
+AudioConnection ampToDist(preamp, 0, dist, 0);
 AudioConnection distToRight(dist, 0, out, 1);
 AudioConnection distToLeft(dist, 0, out, 0);
 
@@ -51,7 +51,7 @@ void loop() {
     float gainPot = analogRead(PREAMP_GAIN_ADC_PIN);
     // linear interpolation
     float gain = PREAMP_MIN_GAIN + gainPot * (PREAMP_MAX_GAIN - PREAMP_MIN_GAIN) / (float) ADC_MAX;
-    inputAmp.gain(gain);
+    preamp.setGain(gain);
 
     // update output volume
     float volPot = analogRead(VOLUME_ADC_PIN);
