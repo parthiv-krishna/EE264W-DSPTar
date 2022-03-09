@@ -17,9 +17,7 @@ distortion_in = linspace(-1, 1, distortion_arr_len);
 
 % Choose function for waveshape
 % distortion_out = sign(distortion_in) .* abs(distortion_in).^(1/10);
-% distortion_out = distortion_in./(1 + abs(distortion_in));
-distortion_out = distortion_in + distortion_in.^3 / 3 + distortion_in.^5 / 5;
-
+distortion_out = distortion_in./(1 + abs(distortion_in));
 % distortion_out = tanh(pi * distortion_in);
 
 % q15
@@ -38,9 +36,9 @@ title("Distortion Curve");
 
 % Plot distorted sine
 Fs = 44100; % 44.1 kHz
-f = 1000; % 1000 Hz sine
+f = 100; % 100 Hz sine
 N = 2048; % 2048 samples
-t_sin = (1:N)/Fs;
+t_sin = (1:N)/Fs; % 1/20 of a second
 y_sin = sin(2*pi*f*t_sin);
 
 idx_sin = int32((y_sin + 1) * distortion_arr_len / 2) + 1;
@@ -49,24 +47,17 @@ y_sin_dist = distortion_out(idx_sin) / (2^15);
 
 figure(2);
 hold on;
-plot(t_sin, y_sin);
-plot(t_sin, y_sin_dist);
+plot(t_sin(1:100), y_sin(1:100));
+plot(t_sin(1:100), y_sin_dist(1:100));
 legend("Input", "Output");
 title("Sample distorted sine wave");
 hold off;
 
-% FFT
-f_sin = (1:N)/N * Fs;
-db = 20*log10(abs(fft(y_sin)));
-db_dist = 20*log10(abs(fft(y_sin_dist)));
-
 figure(3);
-hold on;
+f_sin = (1:N);
+db = 20*log10(abs(fft(y_sin_dist)));
 plot(f_sin, db);
-plot(f_sin, db_dist);
-legend("Input", "Output");
-title("Sample distorted sine wave FFT");
-hold off;
+title("FFT of distorted sine wave");
 
 % Apply distortion to sample audio
 [y, fs] = audioread(filename + ".wav");
