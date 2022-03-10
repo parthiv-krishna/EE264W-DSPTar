@@ -82,6 +82,15 @@ public:
     int count() {
         return _count;
     }
+
+    /**
+     * @brief Gets the number of items the ringbuffer can hold
+     * 
+     * @return The max number of items in the ringbuffer
+     */
+    int size() {
+        return _size;
+    }
     
     /**
      * @brief Checks whether the ringbuffer is empty

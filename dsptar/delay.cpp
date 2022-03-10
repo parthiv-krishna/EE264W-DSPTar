@@ -1,12 +1,37 @@
 #include "delay.h"
 
+void Delay::setup(float maxSecs, size_t numTaps) {
+    if (maxSecs < 0) {
+        return;
+    }
+
+    // clean up old ones
+    if (_delays) {
+        delete[] _delays;
+    }
+    if (_delayQueue) {
+        delete _delayQueue;
+    }
+    
+    _delays = new delay_tap_t[numTaps];
+    _numTaps = numTaps;
+
+    int queueSize = (maxSecs * AUDIO_SAMPLE_RATE) / AUDIO_BLOCK_SAMPLES;
+    _delayQueue = new RingBuffer(queueSize);
+    
+    for (int i = 0; i < numTaps; i++) {
+        _delays[i].delayBlocks = 0;
+        _delays[i].log2Attenuation = 0;
+    }
+}
+
 void Delay::setDelay(int index, int delayMs, int16_t log2Attenuation) {
-    if (index < 0 || index >= NUM_DELAY_TAPS || delayMs < 0) {
+    if (index < 0 || index >= _numTaps || delayMs < 0) {
         return;
     }
     uint32_t delaySamples = delayMs * AUDIO_SAMPLE_RATE / 1000;
     uint32_t delayBlocks = delaySamples / AUDIO_BLOCK_SAMPLES;
-    if (delayBlocks > DELAY_QUEUE_SIZE) {
+    if (delayBlocks > _delayQueue->size()) {
         delayBlocks = 0;
     }
     _delays[index].delayBlocks = delayBlocks;
@@ -28,19 +53,21 @@ void Delay::update() {
 
     memcpy(out->data, block->data, AUDIO_BLOCK_SAMPLES * sizeof(int16_t));
 
-    for (int delayTap = 0; delayTap < NUM_DELAY_TAPS; delayTap++) {
+    for (int delayTap = 0; delayTap < _numTaps; delayTap++) {
         if (_delays[delayTap].delayBlocks > 0) {
-            audio_block_t *delayBlock = _delayQueue.peekFront(_delays[delayTap].delayBlocks);
+            audio_block_t *delayBlock = _delayQueue->peekFront(_delays[delayTap].delayBlocks);
             if (delayBlock) {
+                // only do this if we've collected enough blocks to start adding delay
                 for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) {
                     int32_t acc = out->data[i] + (delayBlock->data[i] >> _delays[delayTap].log2Attenuation);
                     out->data[i] = (int16_t) constrain(acc, INT16_MIN, INT16_MAX);
                 }
             }
+            Serial.println(delayTap);
         } 
     }
 
-    audio_block_t* toFree = _delayQueue.push(block); // will give block that we need to free
+    audio_block_t* toFree = _delayQueue->push(block); // will give block that we need to free
     if (toFree) {
         release(toFree);
     }

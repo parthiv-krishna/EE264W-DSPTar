@@ -28,18 +28,15 @@ public:
      * one input block in inputQueueArray.
      * 
      */
-    Delay(void) : AudioStream(1, _inputQueueArray), _delayQueue(DELAY_QUEUE_SIZE) {
-        for (int i = 0; i < NUM_DELAY_TAPS; i++) {
-            _delays[i].delayBlocks = 0;
-            _delays[i].log2Attenuation = 0;
-        }
-    }
+    Delay(void) : AudioStream(1, _inputQueueArray), _delayQueue(nullptr), _delays(nullptr), _numTaps(0) {}
     
     /**
      * @brief Destroy the Delay object
      * 
      */
     ~Delay() {}
+
+    void setup(float maxSecs, size_t numTaps);
     
     /**
      * @brief Configures a delay tap
@@ -70,14 +67,16 @@ private:
      * @brief ringbuffer queue of blocks
      * 
      */
-    RingBuffer _delayQueue;
+    RingBuffer* _delayQueue;
 
     /**
      * @brief delays for each tap in units of blocks
      * 
      * (~3ms resolution, good enough for our purposes)
      */
-    delay_tap_t _delays[NUM_DELAY_TAPS];
+    delay_tap_t* _delays;
+
+    size_t _numTaps;
 
 };
 #endif // DELAY_H
