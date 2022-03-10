@@ -52,6 +52,12 @@ void setup() {
     dist.setup(DISTORTION_ARR, DISTORTION_ARR_LEN);
     dly.setup(DELAY_MAX_SECS, DELAY_NUM_TAPS);
 
+    int16_t delayMs[DELAY_NUM_TAPS] = DELAY_DELAYMS;
+    int16_t delayAtten[DELAY_NUM_TAPS]  = DELAY_LOG2ATTENUATION;
+    for (size_t i = 0; i < DELAY_NUM_TAPS; i++) {
+        dly.setDelay(i, delayMs[i], delayAtten[i]);
+    }
+
     gate.setThresh(NOISE_GATE_THRESH);
     
     Serial.println("setup complete");

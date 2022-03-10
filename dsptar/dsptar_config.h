@@ -11,9 +11,10 @@
 #define PREAMP_MAX_GAIN 500     // maximum gain value
 
 // Delay control
-// testing: could handle up to 2s of delay
-#define DELAY_MAX_SECS 2
-#define DELAY_NUM_TAPS 4
+#define DELAY_MAX_SECS 2                    // maximum delay time in seconds
+#define DELAY_NUM_TAPS 4                    // number of different delay taps
+#define DELAY_DELAYMS {100, 200, 300, 400}  // ms of delay on each tap (set a tap to 0 to disable)
+#define DELAY_LOG2ATTENUATION {1, 2, 3, 4}  // log 2 of attenuation of each tap (i.e. 0->gain 1, 1->gain 1/2...)
 
 // Output noise gate control
 #define NOISE_GATE_THRESH 8192  // minimum sample absolute value to be sent to output
