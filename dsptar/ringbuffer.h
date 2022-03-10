@@ -4,6 +4,10 @@
 #include "Arduino.h"
 #include "AudioStream.h"
 
+/**
+ * @brief A templatized ring buffer that evicts entries when full
+ *
+ */
 template <class T>
 class RingBuffer {
 public:
