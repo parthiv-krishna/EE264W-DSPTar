@@ -4,6 +4,7 @@
 #include "Arduino.h"
 #include "AudioStream.h"
 
+template <class T>
 class RingBuffer {
 public:
     /**
@@ -12,7 +13,7 @@ public:
      * @param size the size of the buffer
      */
     RingBuffer(int size) : _size(size), _head(0), 
-        _tail(0), _count(0), _data(new audio_block_t*[size](nullptr)) {}
+        _tail(0), _count(0), _data(new T[size]) {}
 
     /**
      * @brief Destroy the Ring Buffer object
@@ -28,12 +29,8 @@ public:
      * @param item the item to push
      * @return an item that was evicted to make space, or nullptr if no item was evicted
      */
-    audio_block_t* push(audio_block_t* item) {
-        audio_block_t *ret = nullptr;
-        if (isFull()) {
-            ret = pop();
-        }
-   
+     T push(audio_block_t* item) {
+        T ret = isFull() ? pop() : nullptr; // clear a spot if needed
         _data[_head] = item;
         _head = (_head + 1) % _size;     
         _count++;
@@ -45,7 +42,7 @@ public:
      * 
      * @return The oldest item in the ringbuffer
      */
-    audio_block_t* peek() {
+    T peek() {
         return _data[_tail];
     }
 
@@ -55,7 +52,7 @@ public:
      * @param n the index from which to peek (i.e. 0 for head, 1 for next item, etc.)
      * @return the (n+1)'th newest item in the ringbuffer
      */
-    audio_block_t* peekFront(int n) {
+    T peekFront(int n) {
         // not sure if % handles negative numbers correctly... add _size to be sure
         return _data[(_head - n + _size) % _size];
     }
@@ -65,8 +62,8 @@ public:
      * 
      * @return The oldest item in the ringbuffer 
      */
-    audio_block_t* pop() {
-        audio_block_t* item = peek();
+    T pop() {
+        T item = peek();
         _tail = (_tail + 1) % _size;
         if (_count > 0) {
             _count--;
@@ -120,7 +117,7 @@ private:
     uint32_t _tail;
     uint32_t _count;
 
-    audio_block_t** _data;
+    T* _data;
 };
 
 

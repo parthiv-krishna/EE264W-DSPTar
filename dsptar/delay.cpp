@@ -17,20 +17,20 @@ void Delay::setup(float maxSecs, size_t numTaps) {
     _numTaps = numTaps;
 
     int queueSize = (maxSecs * AUDIO_SAMPLE_RATE) / AUDIO_BLOCK_SAMPLES;
-    _delayQueue = new RingBuffer(queueSize);
+    _delayQueue = new RingBuffer<audio_block_t*>(queueSize);
     
-    for (int i = 0; i < numTaps; i++) {
+    for (size_t i = 0; i < numTaps; i++) {
         _delays[i].delayBlocks = 0;
         _delays[i].log2Attenuation = 0;
     }
 }
 
-void Delay::setDelay(int index, int delayMs, int16_t log2Attenuation) {
+void Delay::setDelay(size_t index, int delayMs, int16_t log2Attenuation) {
     if (index < 0 || index >= _numTaps || delayMs < 0) {
         return;
     }
-    uint32_t delaySamples = delayMs * AUDIO_SAMPLE_RATE / 1000;
-    uint32_t delayBlocks = delaySamples / AUDIO_BLOCK_SAMPLES;
+    int delaySamples = delayMs * AUDIO_SAMPLE_RATE / 1000;
+    int delayBlocks = delaySamples / AUDIO_BLOCK_SAMPLES;
     if (delayBlocks > _delayQueue->size()) {
         delayBlocks = 0;
     }
@@ -39,6 +39,10 @@ void Delay::setDelay(int index, int delayMs, int16_t log2Attenuation) {
 }
 
 void Delay::update() {
+    if (!_delays || !_delayQueue) {
+        return; // not setup
+    }
+  
     audio_block_t *block;
     block = receiveWritable();
     if (!block) {
@@ -53,7 +57,7 @@ void Delay::update() {
 
     memcpy(out->data, block->data, AUDIO_BLOCK_SAMPLES * sizeof(int16_t));
 
-    for (int delayTap = 0; delayTap < _numTaps; delayTap++) {
+    for (size_t delayTap = 0; delayTap < _numTaps; delayTap++) {
         if (_delays[delayTap].delayBlocks > 0) {
             audio_block_t *delayBlock = _delayQueue->peekFront(_delays[delayTap].delayBlocks);
             if (delayBlock) {

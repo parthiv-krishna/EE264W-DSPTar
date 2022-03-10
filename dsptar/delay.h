@@ -48,7 +48,7 @@ public:
      * @param delayMs Delay in ms
      * @param log2Attenuation log base 2 of attenuation (i.e. 0->gain 1, 1->gain 1/2...)
      */
-    void setDelay(int index, int delayMs, int16_t log2Attenuation);
+    void setDelay(size_t index, int delayMs, int16_t log2Attenuation);
 
     /**
      * @brief Transmits an output block after applying delay
@@ -67,7 +67,7 @@ private:
      * @brief ringbuffer queue of blocks
      * 
      */
-    RingBuffer* _delayQueue;
+    RingBuffer<audio_block_t*>* _delayQueue;
 
     /**
      * @brief delays for each tap in units of blocks
