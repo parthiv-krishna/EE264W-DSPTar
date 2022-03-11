@@ -17,7 +17,7 @@ void Delay::setup(float maxSecs, size_t numTaps) {
     _numTaps = numTaps;
 
     int queueSize = (maxSecs * AUDIO_SAMPLE_RATE) / AUDIO_BLOCK_SAMPLES;
-    _delayQueue = new RingBuffer<audio_block_t*>(queueSize);
+    _delayQueue = new RingBuffer<audio_block_t*>(queueSize, nullptr);
     
     for (size_t i = 0; i < numTaps; i++) {
         _delays[i].delayBlocks = 0;
@@ -70,8 +70,9 @@ void Delay::update() {
         } 
     }
 
-    audio_block_t* toFree = _delayQueue->push(block); // will give block that we need to free
-    if (toFree) {
+    audio_block_t* toFree;
+    // if true then we need to free the evicted block
+    if ( _delayQueue->push(block, &toFree)) {
         release(toFree);
     }
 

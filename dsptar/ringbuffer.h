@@ -45,10 +45,16 @@ public:
      * @brief Pushes an item onto the ringbuffer, evicting the oldest item if full
      * 
      * @param item the item to push
-     * @return an item that was evicted to make space, or nullptr if no item was evicted
+     * @param evicted an item that was evicted to make space, if any
+     * @return true if an item was evicted
+     * @return false if an item was not evicted
      */
-     T push(audio_block_t* item) {
-        T ret = isFull() ? pop() : nullptr; // clear a spot if needed
+    bool push(T item, T* evicted) {
+        bool ret = isFull();
+        if (ret) {
+            *evicted = pop(); // clear a spot if needed
+        } else {
+        }
         _data[_head] = item;
         _head = (_head + 1) % _size;     
         _count++;
