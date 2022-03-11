@@ -29,6 +29,12 @@ if (shape(2) ~= 1)
     error("%s is stereo but dsptar only supports mono reverb", filename);
 end
 
+figure(1);
+t = (1:shape(1))/fs;
+plot(t, data);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Impulse response")
 
 % Generate reverb_array.h
 fileID = fopen("reverb_array.h", "w+");
