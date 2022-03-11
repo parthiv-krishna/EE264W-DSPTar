@@ -9,15 +9,21 @@
  %%%%%%%%%
 
 filename = "wilbur_44100.wav";
+order = 2000;
  
 [data_raw, fs] = audioread(filename);
-data = round(data_raw * 2^15); % Q.15
+data = round(data_raw * 2^10); % Q.15
+data = data(1:order);
 
 if (fs ~= 44100)
     error("%s has fs=%d but dsptar runs at 44.1kHz", filename, fs);
 end
 
 shape = size(data);
+
+if (mod(shape(1), 2) ~= 0 || shape(1) < 4)
+    error("length is %d but must be an even number >= 4", shape(1));
+end
 
 if (shape(2) ~= 1)
     error("%s is stereo but dsptar only supports mono reverb", filename);
