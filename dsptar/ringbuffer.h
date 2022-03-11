@@ -12,12 +12,26 @@ template <class T>
 class RingBuffer {
 public:
     /**
-     * @brief Construct a new RingBuffer object
+     * @brief Construct a new RingBuffer object with copy-constructed elements
+     * 
+     * @param size the size of the buffer
+     * @param initializer a default version of T to copy-construct the internal array from
+     */
+    RingBuffer(size_t size, T initializer) : _size(size), _head(0), 
+        _tail(0), _count(0), _data(new T[size]) {
+      for (size_t i = 0; i < size; i++) {
+          _data[i] = initializer;
+      }
+    }
+
+    /**
+     * @brief Construct a new RingBuffer object with default-constructed elements
      * 
      * @param size the size of the buffer
      */
-    RingBuffer(int size) : _size(size), _head(0), 
-        _tail(0), _count(0), _data(new T[size]) {}
+    RingBuffer(size_t size) {
+        RingBuffer(size, T());
+    }
 
     /**
      * @brief Destroy the Ring Buffer object
