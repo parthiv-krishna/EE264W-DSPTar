@@ -5,7 +5,7 @@
 #include "AudioStream.h"
 
 /**
- * @brief An AudioStream object that provides a distortion effect via waveshaping
+ * @brief An AudioStream object that applies a distortion effect via waveshaping
  *
  */
 class Distortion : public AudioStream {

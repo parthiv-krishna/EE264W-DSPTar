@@ -67,7 +67,6 @@ void Delay::update() {
                     out->data[i] = (int16_t) constrain(acc, INT16_MIN, INT16_MAX);
                 }
             }
-            Serial.println(delayTap);
         } 
     }
 
