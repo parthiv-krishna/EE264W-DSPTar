@@ -6,7 +6,7 @@ Distortion::~Distortion() {
     }
 }
 
-bool Distortion::setup(int16_t *distortionArr, int length) {
+bool Distortion::setup(const int16_t *distortionArr, int length) {
     // famous trick, if (n) & (n - 1) == 0 then n is a power of 2
     bool isPowerOfTwoPlusOne = ((length - 1) & (length - 2)) == 0;
     if (!isPowerOfTwoPlusOne) {
@@ -16,22 +16,8 @@ bool Distortion::setup(int16_t *distortionArr, int length) {
     if (length <= (1 << 0) + 1 || length >= (1 << 15) + 1) {
         return false;
     }
-    
-    if (_distortionArr) {
-        // cleanup old one
-        delete[] _distortionArr;
-    }
 
-    // allocate space
-    _distortionArr = new int16_t[length];
-    if (!_distortionArr) {
-        return false;
-    }
-
-    // copy array into our memory
-    for (int i = 0; i < length; i++) {
-        _distortionArr[i] = distortionArr[i];
-    }
+    _distortionArr = distortionArr;
 
     // find the number of bits to shift when interpolating
     int lengthMinusOne = length - 1;

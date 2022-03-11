@@ -28,12 +28,12 @@ public:
     /**
      * @brief Sets up the Distortion object with a given array
      * 
-     * @param distortionArr The array of waveshaping coefficients (see _distortion_arr)
+     * @param distortionArr The array of waveshaping coefficients (see _distortion_arr). Must be in static memory
      * @param length The length of distortion_arr (must be 2^n + 1 for 0<n<=15) 
      * @return true if the setup succeeded 
      * @return false otherwise
      */
-    bool setup(int16_t *distortionArr, int length);
+    bool setup(const int16_t *distortionArr, int length);
 
     /**
      * @brief Transmits an output block after applying distortion 
