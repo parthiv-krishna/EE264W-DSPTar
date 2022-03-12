@@ -9,10 +9,10 @@
  %%%%%%%%%
 
 filename = "wilbur_44100.wav";
-order = 2000;
+order = 8000;
  
-[data_raw, fs] = audioread(filename);
-data = round(data_raw * 2^10); % Q.15
+[data, fs] = audioread(filename);
+% data = round(data_raw * 2^10); % Q.15
 data = data(1:order);
 
 if (fs ~= 44100)
@@ -40,14 +40,14 @@ fprintf(fileID, '#ifndef REVERB_ARRAY_H\n');
 fprintf(fileID, '#define REVERB_ARRAY_H\n\n');
 
 fprintf(fileID, '#define REVERB_ARR_LEN %6d\n', shape(1));
-fprintf(fileID, 'int16_t REVERB_ARR[REVERB_ARR_LEN] = {\n');
+fprintf(fileID, 'const float32_t REVERB_ARR[REVERB_ARR_LEN] = {\n');
 
-repeat_str = '    %6d, %6d, %6d, %6d, %6d, %6d, %6d, %6d,\n';
+repeat_str = '    %6f, %6f, %6f, %6f, %6f, %6f, %6f, %6f,\n';
 num_repeats = int32(numel(data)/8);
 fmt = [repmat(repeat_str, 1, num_repeats)];
 fprintf(fileID, fmt, data);
 
-repeat_str2 = '%6d, ';
+repeat_str2 = '%6f, ';
 num_remaining = numel(data) - num_repeats*8 - 1;
 fmt2 = ['    ' repmat(repeat_str2, 1, num_remaining) '\n};\n'];
 fprintf(fileID, fmt2, data((num_repeats * 8 + 1 + 1):end));
