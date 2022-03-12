@@ -1,0 +1,70 @@
+\hypertarget{class_preamp}{}\doxysection{Preamp Class Reference}
+\label{class_preamp}\index{Preamp@{Preamp}}
+
+
+An Audio\+Stream object that applies preamplification on raw samples.  
+
+
+
+
+{\ttfamily \#include $<$preamp.\+h$>$}
+
+Inheritance diagram for Preamp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_preamp}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_preamp_a7e620328bb1a3293e3c4abafecbef719}{Preamp}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_preamp}{Preamp}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_preamp_ab041b802763d89f846c1ee2c22d55954}\label{class_preamp_ab041b802763d89f846c1ee2c22d55954}} 
+{\bfseries $\sim$\+Preamp} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_preamp}{Preamp}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_preamp_acf28c4498d64dc0a362c27b9b9cc3651}{set\+Gain}} (float gain)
+\begin{DoxyCompactList}\small\item\em Sets the gain of the preamp. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_preamp_a090252f54df2e831cc4838573adcc3d0}\label{class_preamp_a090252f54df2e831cc4838573adcc3d0}} 
+virtual void {\bfseries update} (void)
+\begin{DoxyCompactList}\small\item\em Transmits an output block after applying gain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Audio\+Stream object that applies preamplification on raw samples. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_preamp_a7e620328bb1a3293e3c4abafecbef719}\label{class_preamp_a7e620328bb1a3293e3c4abafecbef719}} 
+\index{Preamp@{Preamp}!Preamp@{Preamp}}
+\index{Preamp@{Preamp}!Preamp@{Preamp}}
+\doxysubsubsection{\texorpdfstring{Preamp()}{Preamp()}}
+{\footnotesize\ttfamily Preamp\+::\+Preamp (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_preamp}{Preamp}} object. 
+
+Initializes the Audio\+Stream super class to take in one input block in input\+Queue\+Array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_preamp_acf28c4498d64dc0a362c27b9b9cc3651}\label{class_preamp_acf28c4498d64dc0a362c27b9b9cc3651}} 
+\index{Preamp@{Preamp}!setGain@{setGain}}
+\index{setGain@{setGain}!Preamp@{Preamp}}
+\doxysubsubsection{\texorpdfstring{setGain()}{setGain()}}
+{\footnotesize\ttfamily void Preamp\+::set\+Gain (\begin{DoxyParamCaption}\item[{float}]{gain }\end{DoxyParamCaption})}
+
+
+
+Sets the gain of the preamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gain} & the gain to use \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dsptar/preamp.\+h\item 
+dsptar/preamp.\+cpp\end{DoxyCompactItemize}

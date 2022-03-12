@@ -1,0 +1,31 @@
+\hypertarget{preamp_8h_source}{}\doxysection{preamp.\+h}
+\label{preamp_8h_source}\index{dsptar/preamp.h@{dsptar/preamp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PREAMP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PREAMP\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Arduino.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioStream.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define DEFAULT\_GAIN 1.0}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_preamp}{Preamp}} : \textcolor{keyword}{public} AudioStream \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_preamp_a7e620328bb1a3293e3c4abafecbef719}{Preamp}}(\textcolor{keywordtype}{void}) : AudioStream(1, \_inputQueueArray), \_gain(DEFAULT\_GAIN) \{\}}
+\DoxyCodeLine{23     }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_preamp_ab041b802763d89f846c1ee2c22d55954}{\string~Preamp}}() \{\}}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_preamp_acf28c4498d64dc0a362c27b9b9cc3651}{setGain}}(\textcolor{keywordtype}{float} gain);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_preamp_a090252f54df2e831cc4838573adcc3d0}{update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{private}:}
+\DoxyCodeLine{48     audio\_block\_t *\_inputQueueArray[1];}
+\DoxyCodeLine{49     }
+\DoxyCodeLine{54     \textcolor{keywordtype}{float} \_gain;}
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PREAMP\_H}}
+
+\end{DoxyCode}

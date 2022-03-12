@@ -1,0 +1,70 @@
+\hypertarget{class_noise_gate}{}\doxysection{Noise\+Gate Class Reference}
+\label{class_noise_gate}\index{NoiseGate@{NoiseGate}}
+
+
+An Audio\+Stream object that applies a noise gate.  
+
+
+
+
+{\ttfamily \#include $<$noisegate.\+h$>$}
+
+Inheritance diagram for Noise\+Gate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_noise_gate}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_noise_gate_ac4f4f1e71e70220e7be76cb25938efb3}{Noise\+Gate}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_noise_gate}{Noise\+Gate}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_noise_gate_abcdf1888710c86086b1a595189191afd}\label{class_noise_gate_abcdf1888710c86086b1a595189191afd}} 
+{\bfseries $\sim$\+Noise\+Gate} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_noise_gate}{Noise\+Gate}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_noise_gate_a7b30d59784ab3391008edab9d9eb1de5}{set\+Thresh}} (uint16\+\_\+t thresh)
+\begin{DoxyCompactList}\small\item\em Sets the threshold of the noise gate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_noise_gate_ad843006ebe19f8cd5c154f8124be0f02}\label{class_noise_gate_ad843006ebe19f8cd5c154f8124be0f02}} 
+virtual void {\bfseries update} (void)
+\begin{DoxyCompactList}\small\item\em Transmits an output block after applying noise gate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Audio\+Stream object that applies a noise gate. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_noise_gate_ac4f4f1e71e70220e7be76cb25938efb3}\label{class_noise_gate_ac4f4f1e71e70220e7be76cb25938efb3}} 
+\index{NoiseGate@{NoiseGate}!NoiseGate@{NoiseGate}}
+\index{NoiseGate@{NoiseGate}!NoiseGate@{NoiseGate}}
+\doxysubsubsection{\texorpdfstring{NoiseGate()}{NoiseGate()}}
+{\footnotesize\ttfamily Noise\+Gate\+::\+Noise\+Gate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_noise_gate}{Noise\+Gate}} object. 
+
+Initializes the Audio\+Stream super class to take in one input block in input\+Queue\+Array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_noise_gate_a7b30d59784ab3391008edab9d9eb1de5}\label{class_noise_gate_a7b30d59784ab3391008edab9d9eb1de5}} 
+\index{NoiseGate@{NoiseGate}!setThresh@{setThresh}}
+\index{setThresh@{setThresh}!NoiseGate@{NoiseGate}}
+\doxysubsubsection{\texorpdfstring{setThresh()}{setThresh()}}
+{\footnotesize\ttfamily void Noise\+Gate\+::set\+Thresh (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{thresh }\end{DoxyParamCaption})}
+
+
+
+Sets the threshold of the noise gate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thresh} & the threshold to use (must be between 0 and INT16\+\_\+\+MAX, inclusive) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dsptar/noisegate.\+h\item 
+dsptar/noisegate.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\hypertarget{eq_8h_source}{}\doxysection{eq.\+h}
+\label{eq_8h_source}\index{dsptar/eq.h@{dsptar/eq.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef EQ\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define EQ\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Arduino.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioStream.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define SQRT2\_OVER\_2 0.7071f}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define TWO\_TO\_THE\_30 1073741824.0f}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define PI 3.141592654f}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_q}{EQ}} : \textcolor{keyword}{public} AudioStream}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_e_q_a9d7a75f37670d280112b012ae5e3eb4f}{EQ}}(\textcolor{keywordtype}{void}) : AudioStream(1, \_inputQueueArray) \{}
+\DoxyCodeLine{22         \textcolor{comment}{// by default, the filter will not pass anything}}
+\DoxyCodeLine{23         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<32; i++) \_coeffs[i] = 0;}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_adea8a01ffb662a3f9a26d439423321ba}{setCoefficients}}(uint32\_t stage, \textcolor{keyword}{const} \textcolor{keywordtype}{int} *coefficients);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_adea8a01ffb662a3f9a26d439423321ba}{setCoefficients}}(uint32\_t stage, \textcolor{keyword}{const} \textcolor{keywordtype}{double} *coefficients);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_ac5eace5c6a257a60cf631c18eea51d3a}{setLowpass}}(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} q = SQRT2\_OVER\_2);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_aeecadfb4f04ff563c0183ef864cffacd}{setHighpass}}(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} q = SQRT2\_OVER\_2);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_aea327ed0d060929038ec6cb524136d9c}{setBandpass}}(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} q = 1.0);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_ab1eb45dcf38088ccc533d35581939af1}{setNotch}}(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} q = 1.0);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} setLowShelf(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} gain, \textcolor{keywordtype}{float} slope = 1.0f);}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} setHighShelf(uint32\_t stage, \textcolor{keywordtype}{float} frequency, \textcolor{keywordtype}{float} gain, \textcolor{keywordtype}{float} slope = 1.0f);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_q_a2ffdfe62fc125874f3731c2971fba31c}{update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{private}:}
+\DoxyCodeLine{87     int32\_t \_coeffs[32];  \textcolor{comment}{// up to 4 cascaded biquads}}
+\DoxyCodeLine{88     audio\_block\_t *\_inputQueueArray[1];}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{bool} \_setup;}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// EQ\_H}}
+
+\end{DoxyCode}

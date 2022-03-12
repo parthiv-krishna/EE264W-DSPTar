@@ -1,0 +1,55 @@
+\hypertarget{dsptar__config_8h_source}{}\doxysection{dsptar\+\_\+config.\+h}
+\label{dsptar__config_8h_source}\index{dsptar/dsptar\_config.h@{dsptar/dsptar\_config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DSPTAR\_CONFIG\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DSPTAR\_CONFIG\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{// ADC stuff to avoid magic numbers}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define ADC\_BITS 10}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define ADC\_MAX ((1 << ADC\_BITS) -\/ 1)}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{// Preamp gain control}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define PREAMP\_GAIN\_ADC\_PIN A3  }\textcolor{comment}{// analog input pin for preamp gain control}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define PREAMP\_MIN\_GAIN 5       }\textcolor{comment}{// minimum gain value}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define PREAMP\_MAX\_GAIN 500     }\textcolor{comment}{// maximum gain value}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// Delay control}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define DELAY\_MAX\_SECS 1.1                    }\textcolor{comment}{// maximum delay time in seconds}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define DELAY\_NUM\_TAPS 4                      }\textcolor{comment}{// number of different delay taps}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define DELAY\_DELAYMS \{250, 500, 750, 1000\}   }\textcolor{comment}{// ms of delay on each tap (set a tap to 0 to disable)}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DELAY\_LOG2ATTENUATION \{1, 2, 3, 4\}    }\textcolor{comment}{// log 2 of attenuation of each tap (i.e. 0-\/>gain 1, 1-\/>gain 1/2...)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define DELAY\_NOISE\_GATE\_THRESH 8192          }\textcolor{comment}{// minimum sample absolute value out of delay (to avoid EQ loops)}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{// Reverb control}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define REVERB\_GAIN 1.0         }\textcolor{comment}{// additional gain factor in reverb computation}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// EQ control}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define EQ\_LOWPASS\_FREQ\_ADC\_PIN A2}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define EQ\_MIN\_LOWPASS\_FREQ 10}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define EQ\_MAX\_LOWPASS\_FREQ 10000}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{// Output noise gate control}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define OUTPUT\_NOISE\_GATE\_THRESH 8192  }\textcolor{comment}{// minimum sample absolute value to be sent to output}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// wav control}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define FILENAME "{}SANDMAN.WAV"{}}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define SDCARD\_CS\_PIN    10}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define SDCARD\_MOSI\_PIN  7}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define SDCARD\_SCK\_PIN   14}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define PLAY\_WAV 0}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{// Mixer control}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define MIXER\_GUITAR\_GAIN 0.25}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define MIXER\_WAV\_GAIN 1.0}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{// Output volume control}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define VOLUME\_ADC\_PIN A1       }\textcolor{comment}{// analog input pin for volume control}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define VOLUME\_GAIN 0.5           }\textcolor{comment}{// constant scale factor to apply to volume}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{// amount of audio memory, hopefully should not need to change}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define AUDIO\_MEMORY\_SIZE (DELAY\_QUEUE\_SIZE + 20)}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DSPTAR\_CONFIG\_H}}
+
+\end{DoxyCode}

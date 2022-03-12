@@ -1,0 +1,166 @@
+\hypertarget{class_e_q}{}\doxysection{EQ Class Reference}
+\label{class_e_q}\index{EQ@{EQ}}
+Inheritance diagram for EQ\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_e_q}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_q_a9d7a75f37670d280112b012ae5e3eb4f}{EQ}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_e_q}{EQ}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_adea8a01ffb662a3f9a26d439423321ba}{set\+Coefficients}} (uint32\+\_\+t stage, const int $\ast$coefficients)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to given Q.\+30 values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_a05660c48e4bd0b54b6a6df4564317ae9}{set\+Coefficients}} (uint32\+\_\+t stage, const double $\ast$coefficients)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to given float values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_ac5eace5c6a257a60cf631c18eea51d3a}{set\+Lowpass}} (uint32\+\_\+t stage, float frequency, float q=SQRT2\+\_\+\+OVER\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to a lowpass filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_aeecadfb4f04ff563c0183ef864cffacd}{set\+Highpass}} (uint32\+\_\+t stage, float frequency, float q=SQRT2\+\_\+\+OVER\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to a highpass filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_aea327ed0d060929038ec6cb524136d9c}{set\+Bandpass}} (uint32\+\_\+t stage, float frequency, float q=1.\+0)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to a bandpass filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_q_ab1eb45dcf38088ccc533d35581939af1}{set\+Notch}} (uint32\+\_\+t stage, float frequency, float q=1.\+0)
+\begin{DoxyCompactList}\small\item\em Set the coefficients to a notch filter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_q_a755fd80ed492686d79acc023e55459c2}\label{class_e_q_a755fd80ed492686d79acc023e55459c2}} 
+void {\bfseries set\+Low\+Shelf} (uint32\+\_\+t stage, float frequency, float gain, float slope=1.\+0f)
+\item 
+\mbox{\Hypertarget{class_e_q_afd596926b573b25d72b3cd473d65c751}\label{class_e_q_afd596926b573b25d72b3cd473d65c751}} 
+void {\bfseries set\+High\+Shelf} (uint32\+\_\+t stage, float frequency, float gain, float slope=1.\+0f)
+\item 
+\mbox{\Hypertarget{class_e_q_a2ffdfe62fc125874f3731c2971fba31c}\label{class_e_q_a2ffdfe62fc125874f3731c2971fba31c}} 
+virtual void {\bfseries update} (void)
+\begin{DoxyCompactList}\small\item\em Transmits an output blocks after applying \mbox{\hyperlink{class_e_q}{EQ}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_q_a9d7a75f37670d280112b012ae5e3eb4f}\label{class_e_q_a9d7a75f37670d280112b012ae5e3eb4f}} 
+\index{EQ@{EQ}!EQ@{EQ}}
+\index{EQ@{EQ}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{EQ()}{EQ()}}
+{\footnotesize\ttfamily EQ\+::\+EQ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_e_q}{EQ}} object. 
+
+Initializes the Audio\+Stream super class to take in an input block in input\+Queue\+Array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_q_aea327ed0d060929038ec6cb524136d9c}\label{class_e_q_aea327ed0d060929038ec6cb524136d9c}} 
+\index{EQ@{EQ}!setBandpass@{setBandpass}}
+\index{setBandpass@{setBandpass}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setBandpass()}{setBandpass()}}
+{\footnotesize\ttfamily void EQ\+::set\+Bandpass (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{float}]{frequency,  }\item[{float}]{q = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to a bandpass filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em frequency} & The center frequency of the bandpass \\
+\hline
+{\em q} & The q factor of the bandpass (default 1.\+0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_q_a05660c48e4bd0b54b6a6df4564317ae9}\label{class_e_q_a05660c48e4bd0b54b6a6df4564317ae9}} 
+\index{EQ@{EQ}!setCoefficients@{setCoefficients}}
+\index{setCoefficients@{setCoefficients}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setCoefficients()}{setCoefficients()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void EQ\+::set\+Coefficients (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{const double $\ast$}]{coefficients }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to given float values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em coefficients} & The coefficients \mbox{[}b0, b1, b2, a1, a2\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_q_adea8a01ffb662a3f9a26d439423321ba}\label{class_e_q_adea8a01ffb662a3f9a26d439423321ba}} 
+\index{EQ@{EQ}!setCoefficients@{setCoefficients}}
+\index{setCoefficients@{setCoefficients}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setCoefficients()}{setCoefficients()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void EQ\+::set\+Coefficients (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{const int $\ast$}]{coefficients }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to given Q.\+30 values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em coefficients} & The coefficients \mbox{[}b0, b1, b2, a1, a2\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_q_aeecadfb4f04ff563c0183ef864cffacd}\label{class_e_q_aeecadfb4f04ff563c0183ef864cffacd}} 
+\index{EQ@{EQ}!setHighpass@{setHighpass}}
+\index{setHighpass@{setHighpass}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setHighpass()}{setHighpass()}}
+{\footnotesize\ttfamily void EQ\+::set\+Highpass (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{float}]{frequency,  }\item[{float}]{q = {\ttfamily SQRT2\+\_\+OVER\+\_\+2} }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to a highpass filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em frequency} & The cutoff frequency of the highpass \\
+\hline
+{\em q} & The q factor of the highpass (default SQRT2\+\_\+\+OVER\+\_\+2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_q_ac5eace5c6a257a60cf631c18eea51d3a}\label{class_e_q_ac5eace5c6a257a60cf631c18eea51d3a}} 
+\index{EQ@{EQ}!setLowpass@{setLowpass}}
+\index{setLowpass@{setLowpass}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setLowpass()}{setLowpass()}}
+{\footnotesize\ttfamily void EQ\+::set\+Lowpass (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{float}]{frequency,  }\item[{float}]{q = {\ttfamily SQRT2\+\_\+OVER\+\_\+2} }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to a lowpass filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em frequency} & The cutoff frequency of the lowpass \\
+\hline
+{\em q} & The q factor of the lowpass (default SQRT2\+\_\+\+OVER\+\_\+2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_q_ab1eb45dcf38088ccc533d35581939af1}\label{class_e_q_ab1eb45dcf38088ccc533d35581939af1}} 
+\index{EQ@{EQ}!setNotch@{setNotch}}
+\index{setNotch@{setNotch}!EQ@{EQ}}
+\doxysubsubsection{\texorpdfstring{setNotch()}{setNotch()}}
+{\footnotesize\ttfamily void EQ\+::set\+Notch (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{stage,  }\item[{float}]{frequency,  }\item[{float}]{q = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+
+
+Set the coefficients to a notch filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage} & The filter within the cascade to set \\
+\hline
+{\em frequency} & The center frequency of the notch \\
+\hline
+{\em q} & The q factor of the notch (default SQRT2\+\_\+\+OVER\+\_\+2) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dsptar/eq.\+h\item 
+dsptar/eq.\+cpp\end{DoxyCompactItemize}

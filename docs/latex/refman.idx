@@ -1,0 +1,72 @@
+\indexentry{Delay@{Delay}|hyperpage}{7}
+\indexentry{Delay@{Delay}!Delay@{Delay}|hyperpage}{7}
+\indexentry{Delay@{Delay}!Delay@{Delay}|hyperpage}{7}
+\indexentry{Delay@{Delay}!setDelay@{setDelay}|hyperpage}{8}
+\indexentry{setDelay@{setDelay}!Delay@{Delay}|hyperpage}{8}
+\indexentry{delay\_tap\_t@{delay\_tap\_t}|hyperpage}{8}
+\indexentry{Distortion@{Distortion}|hyperpage}{9}
+\indexentry{Distortion@{Distortion}!Distortion@{Distortion}|hyperpage}{9}
+\indexentry{Distortion@{Distortion}!Distortion@{Distortion}|hyperpage}{9}
+\indexentry{Distortion@{Distortion}!setup@{setup}|hyperpage}{10}
+\indexentry{setup@{setup}!Distortion@{Distortion}|hyperpage}{10}
+\indexentry{EQ@{EQ}|hyperpage}{10}
+\indexentry{EQ@{EQ}!EQ@{EQ}|hyperpage}{11}
+\indexentry{EQ@{EQ}!EQ@{EQ}|hyperpage}{11}
+\indexentry{EQ@{EQ}!setBandpass@{setBandpass}|hyperpage}{11}
+\indexentry{setBandpass@{setBandpass}!EQ@{EQ}|hyperpage}{11}
+\indexentry{EQ@{EQ}!setCoefficients@{setCoefficients}|hyperpage}{11}
+\indexentry{setCoefficients@{setCoefficients}!EQ@{EQ}|hyperpage}{11}
+\indexentry{EQ@{EQ}!setCoefficients@{setCoefficients}|hyperpage}{12}
+\indexentry{setCoefficients@{setCoefficients}!EQ@{EQ}|hyperpage}{12}
+\indexentry{EQ@{EQ}!setHighpass@{setHighpass}|hyperpage}{12}
+\indexentry{setHighpass@{setHighpass}!EQ@{EQ}|hyperpage}{12}
+\indexentry{EQ@{EQ}!setLowpass@{setLowpass}|hyperpage}{12}
+\indexentry{setLowpass@{setLowpass}!EQ@{EQ}|hyperpage}{12}
+\indexentry{EQ@{EQ}!setNotch@{setNotch}|hyperpage}{13}
+\indexentry{setNotch@{setNotch}!EQ@{EQ}|hyperpage}{13}
+\indexentry{NoiseGate@{NoiseGate}|hyperpage}{13}
+\indexentry{NoiseGate@{NoiseGate}!NoiseGate@{NoiseGate}|hyperpage}{14}
+\indexentry{NoiseGate@{NoiseGate}!NoiseGate@{NoiseGate}|hyperpage}{14}
+\indexentry{NoiseGate@{NoiseGate}!setThresh@{setThresh}|hyperpage}{14}
+\indexentry{setThresh@{setThresh}!NoiseGate@{NoiseGate}|hyperpage}{14}
+\indexentry{Preamp@{Preamp}|hyperpage}{15}
+\indexentry{Preamp@{Preamp}!Preamp@{Preamp}|hyperpage}{15}
+\indexentry{Preamp@{Preamp}!Preamp@{Preamp}|hyperpage}{15}
+\indexentry{Preamp@{Preamp}!setGain@{setGain}|hyperpage}{15}
+\indexentry{setGain@{setGain}!Preamp@{Preamp}|hyperpage}{15}
+\indexentry{Reverb@{Reverb}|hyperpage}{16}
+\indexentry{Reverb@{Reverb}!Reverb@{Reverb}|hyperpage}{16}
+\indexentry{Reverb@{Reverb}!Reverb@{Reverb}|hyperpage}{16}
+\indexentry{Reverb@{Reverb}!setup@{setup}|hyperpage}{17}
+\indexentry{setup@{setup}!Reverb@{Reverb}|hyperpage}{17}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{17}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!RingBuffer@{RingBuffer}|hyperpage}{18}
+\indexentry{RingBuffer@{RingBuffer}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{18}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!RingBuffer@{RingBuffer}|hyperpage}{18}
+\indexentry{RingBuffer@{RingBuffer}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{18}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!count@{count}|hyperpage}{19}
+\indexentry{count@{count}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{19}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!isEmpty@{isEmpty}|hyperpage}{19}
+\indexentry{isEmpty@{isEmpty}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{19}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!isFull@{isFull}|hyperpage}{19}
+\indexentry{isFull@{isFull}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{19}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!peek@{peek}|hyperpage}{20}
+\indexentry{peek@{peek}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{20}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!peekFront@{peekFront}|hyperpage}{20}
+\indexentry{peekFront@{peekFront}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{20}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!pop@{pop}|hyperpage}{20}
+\indexentry{pop@{pop}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{20}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!push@{push}|hyperpage}{21}
+\indexentry{push@{push}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{21}
+\indexentry{RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}!size@{size}|hyperpage}{21}
+\indexentry{size@{size}!RingBuffer$<$ T $>$@{RingBuffer$<$ T $>$}|hyperpage}{21}
+\indexentry{dsptar/delay.h@{dsptar/delay.h}|hyperpage}{23}
+\indexentry{dsptar/distortion.h@{dsptar/distortion.h}|hyperpage}{23}
+\indexentry{dsptar/distortion\_array.h@{dsptar/distortion\_array.h}|hyperpage}{24}
+\indexentry{dsptar/dsptar\_config.h@{dsptar/dsptar\_config.h}|hyperpage}{25}
+\indexentry{dsptar/eq.h@{dsptar/eq.h}|hyperpage}{25}
+\indexentry{dsptar/noisegate.h@{dsptar/noisegate.h}|hyperpage}{26}
+\indexentry{dsptar/preamp.h@{dsptar/preamp.h}|hyperpage}{26}
+\indexentry{dsptar/reverb.h@{dsptar/reverb.h}|hyperpage}{27}
+\indexentry{dsptar/reverb\_array.h@{dsptar/reverb\_array.h}|hyperpage}{27}
+\indexentry{dsptar/ringbuffer.h@{dsptar/ringbuffer.h}|hyperpage}{114}

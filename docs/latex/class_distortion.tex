@@ -1,0 +1,77 @@
+\hypertarget{class_distortion}{}\doxysection{Distortion Class Reference}
+\label{class_distortion}\index{Distortion@{Distortion}}
+
+
+An Audio\+Stream object that applies a distortion effect via waveshaping.  
+
+
+
+
+{\ttfamily \#include $<$distortion.\+h$>$}
+
+Inheritance diagram for Distortion\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_distortion}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_distortion_a7552d55ab2e2289e2f6d24fb58272f6f}{Distortion}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_distortion}{Distortion}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_distortion_a40b261d900f64ef5e07c7a6f018b5f84}\label{class_distortion_a40b261d900f64ef5e07c7a6f018b5f84}} 
+{\bfseries $\sim$\+Distortion} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_distortion}{Distortion}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_distortion_a5c5674c1261b6fd39f62173532785697}{setup}} (const int16\+\_\+t $\ast$distortion\+Arr, int length)
+\begin{DoxyCompactList}\small\item\em Sets up the \mbox{\hyperlink{class_distortion}{Distortion}} object with a given array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_distortion_a7b7dc227dd7e2574cf02d752be8372ad}\label{class_distortion_a7b7dc227dd7e2574cf02d752be8372ad}} 
+virtual void {\bfseries update} (void)
+\begin{DoxyCompactList}\small\item\em Transmits an output block after applying distortion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Audio\+Stream object that applies a distortion effect via waveshaping. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_distortion_a7552d55ab2e2289e2f6d24fb58272f6f}\label{class_distortion_a7552d55ab2e2289e2f6d24fb58272f6f}} 
+\index{Distortion@{Distortion}!Distortion@{Distortion}}
+\index{Distortion@{Distortion}!Distortion@{Distortion}}
+\doxysubsubsection{\texorpdfstring{Distortion()}{Distortion()}}
+{\footnotesize\ttfamily Distortion\+::\+Distortion (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_distortion}{Distortion}} object. 
+
+Initializes the Audio\+Stream super class to take in one input block in input\+Queue\+Array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_distortion_a5c5674c1261b6fd39f62173532785697}\label{class_distortion_a5c5674c1261b6fd39f62173532785697}} 
+\index{Distortion@{Distortion}!setup@{setup}}
+\index{setup@{setup}!Distortion@{Distortion}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily bool Distortion\+::setup (\begin{DoxyParamCaption}\item[{const int16\+\_\+t $\ast$}]{distortion\+Arr,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+Sets up the \mbox{\hyperlink{class_distortion}{Distortion}} object with a given array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distortion\+Arr} & The array of waveshaping coefficients (see \+\_\+distortion\+\_\+arr). Must be in static memory \\
+\hline
+{\em length} & The length of distortion\+\_\+arr (must be 2$^\wedge$n + 1 for 0\texorpdfstring{$<$}{<}n\texorpdfstring{$<$}{<}=15) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the setup succeeded 
+
+false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dsptar/distortion.\+h\item 
+dsptar/distortion.\+cpp\end{DoxyCompactItemize}

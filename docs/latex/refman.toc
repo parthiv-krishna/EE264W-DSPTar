@@ -1,0 +1,76 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Delay Class Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Delay()}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{8}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}setDelay()}{8}{subsubsection.4.1.3.1}%
+\contentsline {section}{\numberline {4.2}delay\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tap\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{9}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Distortion Class Reference}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{9}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{9}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Distortion()}{9}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{10}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}setup()}{10}{subsubsection.4.3.3.1}%
+\contentsline {section}{\numberline {4.4}EQ Class Reference}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Constructor \& Destructor Documentation}{11}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.1}EQ()}{11}{subsubsection.4.4.1.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{11}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}setBandpass()}{11}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}setCoefficients()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{12}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}setCoefficients()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{12}{subsubsection.4.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}setHighpass()}{12}{subsubsection.4.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.4.2.5}setLowpass()}{13}{subsubsection.4.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.4.2.6}setNotch()}{13}{subsubsection.4.4.2.6}%
+\contentsline {section}{\numberline {4.5}Noise\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Gate Class Reference}{13}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{14}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{14}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}NoiseGate()}{14}{subsubsection.4.5.2.1}%
+\contentsline {subsection}{\numberline {4.5.3}Member Function Documentation}{14}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}setThresh()}{14}{subsubsection.4.5.3.1}%
+\contentsline {section}{\numberline {4.6}Preamp Class Reference}{15}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{15}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Constructor \& Destructor Documentation}{15}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}Preamp()}{15}{subsubsection.4.6.2.1}%
+\contentsline {subsection}{\numberline {4.6.3}Member Function Documentation}{15}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}setGain()}{15}{subsubsection.4.6.3.1}%
+\contentsline {section}{\numberline {4.7}Reverb Class Reference}{16}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{16}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{16}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}Reverb()}{16}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Member Function Documentation}{17}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}setup()}{17}{subsubsection.4.7.3.1}%
+\contentsline {section}{\numberline {4.8}Ring\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Buffer$<$ T $>$ Class Template Reference}{17}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{18}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Constructor \& Destructor Documentation}{18}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}RingBuffer()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{18}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}RingBuffer()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{19}{subsubsection.4.8.2.2}%
+\contentsline {subsection}{\numberline {4.8.3}Member Function Documentation}{19}{subsection.4.8.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.1}count()}{19}{subsubsection.4.8.3.1}%
+\contentsline {subsubsection}{\numberline {4.8.3.2}isEmpty()}{19}{subsubsection.4.8.3.2}%
+\contentsline {subsubsection}{\numberline {4.8.3.3}isFull()}{20}{subsubsection.4.8.3.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.4}peek()}{20}{subsubsection.4.8.3.4}%
+\contentsline {subsubsection}{\numberline {4.8.3.5}peekFront()}{20}{subsubsection.4.8.3.5}%
+\contentsline {subsubsection}{\numberline {4.8.3.6}pop()}{20}{subsubsection.4.8.3.6}%
+\contentsline {subsubsection}{\numberline {4.8.3.7}push()}{21}{subsubsection.4.8.3.7}%
+\contentsline {subsubsection}{\numberline {4.8.3.8}size()}{21}{subsubsection.4.8.3.8}%
+\contentsline {chapter}{\numberline {5}File Documentation}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}delay.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}distortion.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}distortion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}array.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.5.3}%
+\contentsline {section}{\numberline {5.4}dsptar\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}{section.5.4}%
+\contentsline {section}{\numberline {5.5}eq.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}{section.5.5}%
+\contentsline {section}{\numberline {5.6}noisegate.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.6}%
+\contentsline {section}{\numberline {5.7}preamp.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.7}%
+\contentsline {section}{\numberline {5.8}reverb.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}{section.5.8}%
+\contentsline {section}{\numberline {5.9}reverb\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}array.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}{section.5.9}%
+\contentsline {section}{\numberline {5.10}ringbuffer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{114}{section.5.10}%
+\contentsline {chapter}{Index}{117}{section*.16}%

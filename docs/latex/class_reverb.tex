@@ -1,0 +1,82 @@
+\hypertarget{class_reverb}{}\doxysection{Reverb Class Reference}
+\label{class_reverb}\index{Reverb@{Reverb}}
+
+
+An Audio\+Stream object that applies a reverb effect.  
+
+
+
+
+{\ttfamily \#include $<$reverb.\+h$>$}
+
+Inheritance diagram for Reverb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_reverb}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_reverb_a39d0344d4022de42678fdb2ce38d4ac8}{Reverb}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_reverb}{Reverb}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reverb_a473dd416ba3aa5b8435941f70404683e}{setup}} (float32\+\_\+t gain, float32\+\_\+t $\ast$fft\+Coeffs, const float32\+\_\+t $\ast$ir\+Arr, float32\+\_\+t ir\+Arr\+Len, float32\+\_\+t $\ast$fft\+Temp)
+\begin{DoxyCompactList}\small\item\em Sets up the \mbox{\hyperlink{class_reverb}{Reverb}} object with a given array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_reverb_a261dbe76a40c2b4fa6a99af6eba4fbe8}\label{class_reverb_a261dbe76a40c2b4fa6a99af6eba4fbe8}} 
+virtual void {\bfseries update} (void)
+\begin{DoxyCompactList}\small\item\em Transmits two output blocks after applying reverb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Audio\+Stream object that applies a reverb effect. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_reverb_a39d0344d4022de42678fdb2ce38d4ac8}\label{class_reverb_a39d0344d4022de42678fdb2ce38d4ac8}} 
+\index{Reverb@{Reverb}!Reverb@{Reverb}}
+\index{Reverb@{Reverb}!Reverb@{Reverb}}
+\doxysubsubsection{\texorpdfstring{Reverb()}{Reverb()}}
+{\footnotesize\ttfamily Reverb\+::\+Reverb (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_reverb}{Reverb}} object. 
+
+Initializes the Audio\+Stream super class to take in two input blocks in input\+Queue\+Array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_reverb_a473dd416ba3aa5b8435941f70404683e}\label{class_reverb_a473dd416ba3aa5b8435941f70404683e}} 
+\index{Reverb@{Reverb}!setup@{setup}}
+\index{setup@{setup}!Reverb@{Reverb}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily bool Reverb\+::setup (\begin{DoxyParamCaption}\item[{float32\+\_\+t}]{gain,  }\item[{float32\+\_\+t $\ast$}]{fft\+Coeffs,  }\item[{const float32\+\_\+t $\ast$}]{ir\+Arr,  }\item[{float32\+\_\+t}]{ir\+Arr\+Len,  }\item[{float32\+\_\+t $\ast$}]{fft\+Temp }\end{DoxyParamCaption})}
+
+
+
+Sets up the \mbox{\hyperlink{class_reverb}{Reverb}} object with a given array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gain} & Gain to apply to the reverb \\
+\hline
+{\em fft\+Coeffs} & Statically declared array float32 array of size n\+Blocks $\ast$ REVERB\+\_\+\+FFT\+\_\+\+LENGTH $\ast$ 2, updated to store fft of ir\+Arr \\
+\hline
+{\em n\+Blocks} & Length of ir\+Arr in terms of audio blocks \\
+\hline
+{\em ir\+Arr} & Impulse response to convolve with signal \\
+\hline
+{\em ir\+Arr\+Len} & Length of impulse response array in samples \\
+\hline
+{\em fft\+Temp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dsptar/reverb.\+h\item 
+dsptar/reverb.\+cpp\end{DoxyCompactItemize}

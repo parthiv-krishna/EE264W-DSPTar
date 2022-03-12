@@ -1,0 +1,56 @@
+\hypertarget{reverb_8h_source}{}\doxysection{reverb.\+h}
+\label{reverb_8h_source}\index{dsptar/reverb.h@{dsptar/reverb.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef REVERB\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define REVERB\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Arduino.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioStream.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}arm\_math.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}arm\_const\_structs.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define REVERB\_MAX\_NBLOCKS 128}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_reverb}{Reverb}} : \textcolor{keyword}{public} AudioStream \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_reverb_a39d0344d4022de42678fdb2ce38d4ac8}{Reverb}}(\textcolor{keywordtype}{void}) : AudioStream(2, inputQueueArray) \{\}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_reverb_a473dd416ba3aa5b8435941f70404683e}{setup}}(float32\_t gain, float32\_t *fftCoeffs, \textcolor{keyword}{const} float32\_t *irArr, float32\_t irArrLen, float32\_t *fftTemp);}
+\DoxyCodeLine{40     }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_reverb_a261dbe76a40c2b4fa6a99af6eba4fbe8}{update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{private}:}
+\DoxyCodeLine{48     audio\_block\_t *inputQueueArray[2];}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \_setup = \textcolor{keyword}{false};}
+\DoxyCodeLine{51     \textcolor{keywordtype}{size\_t} \_buffIdx;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{size\_t} \_currIdx;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     float32\_t \_gain; \textcolor{comment}{// additional gain factor}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     float32\_t \_freqResponse[REVERB\_MAX\_NBLOCKS][AUDIO\_BLOCK\_SAMPLES * 4];}
+\DoxyCodeLine{57     float32\_t \_fftin[AUDIO\_BLOCK\_SAMPLES * 4];}
+\DoxyCodeLine{58     float32\_t \_floatBufL[AUDIO\_BLOCK\_SAMPLES];}
+\DoxyCodeLine{59     float32\_t \_floatBufR[AUDIO\_BLOCK\_SAMPLES];}
+\DoxyCodeLine{60     float32\_t \_lastBlockL[AUDIO\_BLOCK\_SAMPLES];}
+\DoxyCodeLine{61     float32\_t \_lastBlockR[AUDIO\_BLOCK\_SAMPLES];}
+\DoxyCodeLine{62     float32\_t \_acc[AUDIO\_BLOCK\_SAMPLES * 4];}
+\DoxyCodeLine{63     float32\_t \_acc2[AUDIO\_BLOCK\_SAMPLES * 4];}
+\DoxyCodeLine{64     float32\_t *\_ptr\_freqResponse;}
+\DoxyCodeLine{65     float32\_t *\_ptr\_fftout;}
+\DoxyCodeLine{66     float32\_t *\_ptr\_fftout\_curr;}
+\DoxyCodeLine{67     float32\_t *\_ptr\_freqResponse\_curr;}
+\DoxyCodeLine{68     }
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} \_nBlocks;}
+\DoxyCodeLine{70     }
+\DoxyCodeLine{71     \textcolor{comment}{// counters}}
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} \_k;}
+\DoxyCodeLine{73     \textcolor{keywordtype}{int} \_kMult;}
+\DoxyCodeLine{74     \textcolor{keywordtype}{int} \_jMult;}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

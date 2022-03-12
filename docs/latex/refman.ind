@@ -1,0 +1,105 @@
+\begin{theindex}
+
+  \item {count}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{19}
+
+  \indexspace
+
+  \item {Delay}, \hyperpage{7}
+    \subitem {Delay}, \hyperpage{7}
+    \subitem {setDelay}, \hyperpage{8}
+  \item {delay\_tap\_t}, \hyperpage{8}
+  \item {Distortion}, \hyperpage{9}
+    \subitem {Distortion}, \hyperpage{9}
+    \subitem {setup}, \hyperpage{10}
+  \item {dsptar/delay.h}, \hyperpage{23}
+  \item {dsptar/distortion.h}, \hyperpage{23}
+  \item {dsptar/distortion\_array.h}, \hyperpage{24}
+  \item {dsptar/dsptar\_config.h}, \hyperpage{25}
+  \item {dsptar/eq.h}, \hyperpage{25}
+  \item {dsptar/noisegate.h}, \hyperpage{26}
+  \item {dsptar/preamp.h}, \hyperpage{26}
+  \item {dsptar/reverb.h}, \hyperpage{27}
+  \item {dsptar/reverb\_array.h}, \hyperpage{27}
+  \item {dsptar/ringbuffer.h}, \hyperpage{114}
+
+  \indexspace
+
+  \item {EQ}, \hyperpage{10}
+    \subitem {EQ}, \hyperpage{11}
+    \subitem {setBandpass}, \hyperpage{11}
+    \subitem {setCoefficients}, \hyperpage{11, 12}
+    \subitem {setHighpass}, \hyperpage{12}
+    \subitem {setLowpass}, \hyperpage{12}
+    \subitem {setNotch}, \hyperpage{13}
+
+  \indexspace
+
+  \item {isEmpty}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{19}
+  \item {isFull}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{19}
+
+  \indexspace
+
+  \item {NoiseGate}, \hyperpage{13}
+    \subitem {NoiseGate}, \hyperpage{14}
+    \subitem {setThresh}, \hyperpage{14}
+
+  \indexspace
+
+  \item {peek}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{20}
+  \item {peekFront}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{20}
+  \item {pop}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{20}
+  \item {Preamp}, \hyperpage{15}
+    \subitem {Preamp}, \hyperpage{15}
+    \subitem {setGain}, \hyperpage{15}
+  \item {push}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{21}
+
+  \indexspace
+
+  \item {Reverb}, \hyperpage{16}
+    \subitem {Reverb}, \hyperpage{16}
+    \subitem {setup}, \hyperpage{17}
+  \item {RingBuffer}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{18}
+  \item {RingBuffer$<$ T $>$}, \hyperpage{17}
+    \subitem {count}, \hyperpage{19}
+    \subitem {isEmpty}, \hyperpage{19}
+    \subitem {isFull}, \hyperpage{19}
+    \subitem {peek}, \hyperpage{20}
+    \subitem {peekFront}, \hyperpage{20}
+    \subitem {pop}, \hyperpage{20}
+    \subitem {push}, \hyperpage{21}
+    \subitem {RingBuffer}, \hyperpage{18}
+    \subitem {size}, \hyperpage{21}
+
+  \indexspace
+
+  \item {setBandpass}
+    \subitem {EQ}, \hyperpage{11}
+  \item {setCoefficients}
+    \subitem {EQ}, \hyperpage{11, 12}
+  \item {setDelay}
+    \subitem {Delay}, \hyperpage{8}
+  \item {setGain}
+    \subitem {Preamp}, \hyperpage{15}
+  \item {setHighpass}
+    \subitem {EQ}, \hyperpage{12}
+  \item {setLowpass}
+    \subitem {EQ}, \hyperpage{12}
+  \item {setNotch}
+    \subitem {EQ}, \hyperpage{13}
+  \item {setThresh}
+    \subitem {NoiseGate}, \hyperpage{14}
+  \item {setup}
+    \subitem {Distortion}, \hyperpage{10}
+    \subitem {Reverb}, \hyperpage{17}
+  \item {size}
+    \subitem {RingBuffer$<$ T $>$}, \hyperpage{21}
+
+\end{theindex}

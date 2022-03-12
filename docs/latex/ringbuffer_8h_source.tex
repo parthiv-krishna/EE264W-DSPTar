@@ -1,0 +1,89 @@
+\hypertarget{ringbuffer_8h_source}{}\doxysection{ringbuffer.\+h}
+\label{ringbuffer_8h_source}\index{dsptar/ringbuffer.h@{dsptar/ringbuffer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RINGBUFFER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RINGBUFFER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Arduino.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioStream.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{11 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_ring_buffer}{RingBuffer}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_ring_buffer_a394ebdfd9c6b45bf12d85218c2240cc0}{RingBuffer}}(\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}, T initializer) : \_size(\mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}), \_head(0), }
+\DoxyCodeLine{21         \_tail(0), \_count(0), \_data(new T[\mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}]) \{}
+\DoxyCodeLine{22       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}; i++) \{}
+\DoxyCodeLine{23           \_data[i] = initializer;}
+\DoxyCodeLine{24       \}}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_ring_buffer_a147ee8e544a3e87d7d0dbeea0014610e}{RingBuffer}}(\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}) \{}
+\DoxyCodeLine{33         \mbox{\hyperlink{class_ring_buffer_a394ebdfd9c6b45bf12d85218c2240cc0}{RingBuffer}}(\mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}, T());}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_ring_buffer_a2ea502f6493ca669f07f9f01a4a94bdb}{\string~RingBuffer}}() \{}
+\DoxyCodeLine{41         \textcolor{keyword}{delete}[] \_data;}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_ring_buffer_a323e4f1f17379a19673658a00a46f0f2}{push}}(T item, T* evicted) \{}
+\DoxyCodeLine{53         \textcolor{keywordtype}{bool} ret = \mbox{\hyperlink{class_ring_buffer_a7edb56920637755d450d301cafa674e5}{isFull}}();}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (ret) \{}
+\DoxyCodeLine{55             *evicted = \mbox{\hyperlink{class_ring_buffer_a5bc0f1650622d2da3926ff980a41a233}{pop}}(); \textcolor{comment}{// clear a spot if needed}}
+\DoxyCodeLine{56         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58         \_data[\_head] = item;}
+\DoxyCodeLine{59         \_head = (\_head + 1) \% \_size;     }
+\DoxyCodeLine{60         \_count++;}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63     }
+\DoxyCodeLine{69     T \mbox{\hyperlink{class_ring_buffer_ae3778b838d8b98bda18804b10d7679f9}{peek}}() \{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \_data[\_tail];}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{79     T \mbox{\hyperlink{class_ring_buffer_aa2609accdf37b3a6da08ad80c687161a}{peekFront}}(\textcolor{keywordtype}{int} n) \{}
+\DoxyCodeLine{80         \textcolor{comment}{// not sure if \% handles negative numbers correctly... add \_size to be sure}}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} \_data[(\_head -\/ n + \_size) \% \_size];}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{89     T \mbox{\hyperlink{class_ring_buffer_a5bc0f1650622d2da3926ff980a41a233}{pop}}() \{}
+\DoxyCodeLine{90         T item = \mbox{\hyperlink{class_ring_buffer_ae3778b838d8b98bda18804b10d7679f9}{peek}}();}
+\DoxyCodeLine{91         \_tail = (\_tail + 1) \% \_size;}
+\DoxyCodeLine{92         \textcolor{keywordflow}{if} (\_count > 0) \{}
+\DoxyCodeLine{93             \_count-\/-\/;}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} item;}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     }
+\DoxyCodeLine{103     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_ring_buffer_a7fdc80d6ef22ec9633b0f72050c8cc60}{count}}() \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} \_count;}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_ring_buffer_adabeaab3eddbb1cf519e06643eafbf63}{size}}() \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} \_size;}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115     }
+\DoxyCodeLine{122     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_ring_buffer_af21370e9be55b3b71bec8fe0f16a45fb}{isEmpty}}() \{}
+\DoxyCodeLine{123         \textcolor{keywordflow}{return} \_count == 0;}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125     }
+\DoxyCodeLine{132     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_ring_buffer_a7edb56920637755d450d301cafa674e5}{isFull}}() \{}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} \_count == \_size;}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{keyword}{private}:}
+\DoxyCodeLine{137     uint32\_t \_size; \textcolor{comment}{// allocated size}}
+\DoxyCodeLine{138     }
+\DoxyCodeLine{139     \textcolor{comment}{// technically should not need all 3 but it's a little easier}}
+\DoxyCodeLine{140     uint32\_t \_head;}
+\DoxyCodeLine{141     uint32\_t \_tail;}
+\DoxyCodeLine{142     uint32\_t \_count;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     T* \_data;}
+\DoxyCodeLine{145 \};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// RINGBUFFER\_H}}
+
+\end{DoxyCode}
