@@ -3,8 +3,11 @@
 
 #include "Arduino.h"
 #include "AudioStream.h"
-#include "arm_math.h"
 
+#include "arm_math.h"
+#include "arm_const_structs.h"
+
+#define REVERB_MAX_NBLOCKS 128
 
 /**
  * @brief An AudioStream object that applies a reverb effect
@@ -16,68 +19,59 @@ public:
      * @brief Construct a new Reverb object
      * 
      * Initializes the AudioStream super class to take in
-     * one input block in inputQueueArray.
+     * two input blocks in inputQueueArray.
      * 
      */
-    Reverb(void) : AudioStream(1, _inputQueueArray), _irArr(nullptr) {}
-    
-    /**
-     * @brief Destroy the Reverb object
-     * 
-     */
-    ~Reverb();
-    
-    /**
-     * @brief Sets up the Reverb object with a given impulse response
-     * 
-     * @param impulseResponse The array of impulse response (see _irArr)
-     * @param length The length of impulseResponse (must be 2^n for 0<n<=15)
-     * @return true if the setup succeeded
-     * @return false otherwise
-     */
-    bool setup(int16_t *impulseResponse, size_t length);
+    Reverb(void) : AudioStream(2, inputQueueArray) {}
 
     /**
-     * @brief Transmits an output block after applying distortion 
+     * @brief Sets up the Reverb object with a given array
+     * 
+     * @param gain Gain to apply to the reverb
+     * @param fftCoeffs Statically declared array float32 array of size nBlocks * REVERB_FFT_LENGTH * 2, updated to store fft of irArr
+     * @param nBlocks Length of irArr in terms of audio blocks
+     * @param irArr Impulse response to convolve with signal
+     * @param irArrLen Length of impulse response array in samples
+     * @param fftTemp 
+     * @return true 
+     * @return false 
+     */
+    bool setup(float32_t gain, float32_t *fftCoeffs, const float32_t *irArr, float32_t irArrLen, float32_t *fftTemp);
+    
+    /**
+     * @brief Transmits two output blocks after applying reverb 
      * 
      */
     virtual void update(void);
 
 private:
-    /**
-     * @brief The input block array (just one input)
-     * 
-     */
-    audio_block_t *_inputQueueArray[1];
+    audio_block_t *inputQueueArray[2];
+
+    bool _setup = false;
+    size_t _buffIdx;
+    size_t _currIdx;
+
+    float32_t _gain; // additional gain factor
+
+    float32_t _freqResponse[REVERB_MAX_NBLOCKS][AUDIO_BLOCK_SAMPLES * 4];
+    float32_t _fftin[AUDIO_BLOCK_SAMPLES * 4];
+    float32_t _floatBufL[AUDIO_BLOCK_SAMPLES];
+    float32_t _floatBufR[AUDIO_BLOCK_SAMPLES];
+    float32_t _lastBlockL[AUDIO_BLOCK_SAMPLES];
+    float32_t _lastBlockR[AUDIO_BLOCK_SAMPLES];
+    float32_t _acc[AUDIO_BLOCK_SAMPLES * 4];
+    float32_t _acc2[AUDIO_BLOCK_SAMPLES * 4];
+    float32_t *_ptr_freqResponse;
+    float32_t *_ptr_fftout;
+    float32_t *_ptr_fftout_curr;
+    float32_t *_ptr_freqResponse_curr;
     
-    /**
-     * @brief The impulse response to use
-     * 
-     * These should be stored in Q.15 fixed point format. The first element corresponds
-     * to the output level at input = -1. The last element corresponds to the output level
-     * at input = 1. The values in between are used, along with linear interpolation, to
-     * compute the output level at all input levels in between. To increase computation
-     * speed, the number of elements must be a power of 2 plus 1 (i.e. 2^N + 1).
-     * 
-     */
-    int16_t *_irArr;
-
-    /**
-     * @brief The length of the _irArr
-     * 
-     */
-    size_t _irArrLen;
-
-    /**
-     * @brief Data for the DSP accelerator to use
-     * 
-     */
-    arm_fir_instance_q15 _fir;
-
-    q15_t *_state;
-
+    int _nBlocks;
+    
+    // counters
+    int _k;
+    int _kMult;
+    int _jMult;
 };
 
-
-
-#endif // REVERB_H
+#endif
