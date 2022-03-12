@@ -89,7 +89,7 @@ fprintf(fileID, '#ifndef DISTORTION_ARRAY_H\n');
 fprintf(fileID, '#define DISTORTION_ARRAY_H\n\n');
 
 fprintf(fileID, '#define DISTORTION_ARR_LEN %6d\n', distortion_arr_len);
-fprintf(fileID, 'int16_t DISTORTION_ARR[DISTORTION_ARR_LEN] = {\n');
+fprintf(fileID, 'const int16_t DISTORTION_ARR[DISTORTION_ARR_LEN] = {\n');
 
 repeat_str = '    %6d, %6d, %6d, %6d, %6d, %6d, %6d, %6d,\n';
 num_repeats = int32(numel(distortion_out)/8);
